@@ -2,14 +2,41 @@
 
 #region basic
 
-function adaptWinW(_winW, _winH, _w) {
+#macro ADAPT_WIN_ADAPT_RAT	true
+#macro ADAPT_WIN_ADAPT_LIM	50
+
+function adaptWinW(_winW, _winH, _w, _h) {
 	
-	return [_w, round(_winH / _winW * _w)];
+	var _ww = _winW;
+	var _hh = round(_h / _w * _winW);
+	
+	if (ADAPT_WIN_ADAPT_RAT) {
+		
+		var _ratio = adaptWinRatioMath(_ww, _hh, ADAPT_WIN_ADAPT_LIM);
+		var _scale = min(_winW div _ratio[0], _winH div _ratio[1]);
+		
+		_ww = _ratio[0] * _scale;
+		_hh = _ratio[1] * _scale;
+	}
+	
+	return [_ww, _hh];
 }
 
-function adaptWinH(_winW, _winH, _h) {
+function adaptWinH(_winW, _winH, _w, _h) {
 	
-	return [round(_winW / _winH * _h), _h];
+	var _ww = round(_h / _w * _winH);
+	var _hh = _winH;
+	
+	if (ADAPT_WIN_ADAPT_RAT) {
+		
+		var _ratio = adaptWinRatioMath(_ww, _hh, ADAPT_WIN_ADAPT_LIM);
+		var _scale = min(_winW div _ratio[0], _winH div _ratio[1]);
+		
+		_ww = _ratio[0] * _scale;
+		_hh = _ratio[1] * _scale;
+	}
+	
+	return [_ww, _hh];
 }
 
 function adaptWinRatioMath(_winW, _winH, _lim) {

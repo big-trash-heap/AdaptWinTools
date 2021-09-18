@@ -3,7 +3,7 @@
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
-  "persistent": false,
+  "persistent": true,
   "parentObjectId": {
     "name": "objAdaptWin_mobile_static",
     "path": "objects/objAdaptWin_mobile_static/objAdaptWin_mobile_static.yy",
