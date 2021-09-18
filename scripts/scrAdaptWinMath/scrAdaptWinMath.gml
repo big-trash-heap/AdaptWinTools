@@ -13,7 +13,7 @@ function adaptWinW(_winW, _winH, _w, _h) {
 	if (ADAPT_WIN_ADAPT_RAT) {
 		
 		var _ratio = adaptWinRatioMath(_ww, _hh, ADAPT_WIN_ADAPT_LIM);
-		var _scale = min(_winW div _ratio[0], _winH div _ratio[1]);
+		var _scale = max(_winW div _ratio[0], _winH div _ratio[1]);
 		
 		_ww = _ratio[0] * _scale;
 		_hh = _ratio[1] * _scale;
@@ -30,7 +30,7 @@ function adaptWinH(_winW, _winH, _w, _h) {
 	if (ADAPT_WIN_ADAPT_RAT) {
 		
 		var _ratio = adaptWinRatioMath(_ww, _hh, ADAPT_WIN_ADAPT_LIM);
-		var _scale = min(_winW div _ratio[0], _winH div _ratio[1]);
+		var _scale = max(_winW div _ratio[0], _winH div _ratio[1]);
 		
 		_ww = _ratio[0] * _scale;
 		_hh = _ratio[1] * _scale;
