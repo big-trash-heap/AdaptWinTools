@@ -8,7 +8,7 @@
 function adaptWinW(_winW, _winH, _w, _h) {
 	
 	var _ww = _winW;
-	var _hh = round(_h / _w * _winW);
+	var _hh = floor(_h / _w * _winW);
 	
 	if (ADAPT_WIN_ADAPT_RAT) {
 		
@@ -24,7 +24,7 @@ function adaptWinW(_winW, _winH, _w, _h) {
 
 function adaptWinH(_winW, _winH, _w, _h) {
 	
-	var _ww = round(_h / _w * _winH);
+	var _ww = floor(_h / _w * _winH);
 	var _hh = _winH;
 	
 	if (ADAPT_WIN_ADAPT_RAT) {
