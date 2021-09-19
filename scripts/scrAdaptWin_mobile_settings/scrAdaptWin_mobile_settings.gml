@@ -1,4 +1,5 @@
 
+
 // main
 #macro ADAPT_WIN_MOBILE_APPSURF			true
 #macro ADAPT_WIN_MOBILE_GUI				true
