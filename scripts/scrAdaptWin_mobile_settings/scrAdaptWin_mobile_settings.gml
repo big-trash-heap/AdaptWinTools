@@ -4,8 +4,8 @@
 #macro ADAPT_WIN_MOBILE_GUI				true
 #macro ADAPT_WIN_MOBILE_VIEW			7
 										
-#macro ADAPT_WIN_MOBILE_MODE			"h"
-#macro ADAPT_WIN_MOBILE_SIZE			1080
+#macro ADAPT_WIN_MOBILE_MODE			"w"
+#macro ADAPT_WIN_MOBILE_SIZE			1920
 
 // virtual
 #macro ADAPT_WIN_MOBILE_VIRT_ASCPECT	true
