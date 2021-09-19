@@ -32,15 +32,15 @@ else {
 		
 		_w = display_get_height();
 		_h = display_get_width();
+	}
+	
+	if (_h > _w) {
 		
-		if (_h > _w) {
-			
-			show_debug_message("  WinAdapt view: fantastic!");
-			
-			var _swap = _w;
-			_w = _h;
-			_h = _swap;
-		}
+		show_debug_message("  WinAdapt view: fantastic!");
+		
+		var _swap = _w;
+		_w = _h;
+		_h = _swap;
 	}
 }
 
