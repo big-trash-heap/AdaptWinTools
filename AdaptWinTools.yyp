@@ -5,6 +5,7 @@
     {"id":{"name":"Sprite1","path":"sprites/Sprite1/Sprite1.yy",},"order":2,},
     {"id":{"name":"Object1","path":"objects/Object1/Object1.yy",},"order":3,},
     {"id":{"name":"Sprite4","path":"sprites/Sprite4/Sprite4.yy",},"order":8,},
+    {"id":{"name":"Room3","path":"rooms/Room3/Room3.yy",},"order":10,},
     {"id":{"name":"scrAdaptWinCamera","path":"scripts/scrAdaptWinCamera/scrAdaptWinCamera.yy",},"order":1,},
     {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":7,},
     {"id":{"name":"Object4","path":"objects/Object4/Object4.yy",},"order":6,},
@@ -35,6 +36,7 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
+    {"roomId":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "Folders": [

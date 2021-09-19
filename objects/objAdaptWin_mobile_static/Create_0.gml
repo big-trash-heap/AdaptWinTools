@@ -86,6 +86,8 @@ if (ADAPT_WIN_MOBILE_GUI) {
 }
 
 if (ADAPT_WIN_MOBILE_APPSURF) {
+	
+	application_surface_enable(true);
 	surface_resize(application_surface, _size[0], _size[1]);
 }
 else {
