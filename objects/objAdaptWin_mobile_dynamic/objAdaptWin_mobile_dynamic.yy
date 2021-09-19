@@ -30,8 +30,8 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "mobile",
-    "path": "folders/AdaptWinTools/pressets/mobile.yy",
+    "name": "mobile_not_rotate",
+    "path": "folders/AdaptWinTools/pressets/mobile_not_rotate.yy",
   },
   "resourceVersion": "1.0",
   "name": "objAdaptWin_mobile_dynamic",

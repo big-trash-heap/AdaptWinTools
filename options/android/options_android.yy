@@ -16,7 +16,7 @@
   "option_android_arch_arm64": true,
   "option_android_arch_x86_64": true,
   "option_android_orient_portrait": true,
-  "option_android_orient_portrait_flipped": false,
+  "option_android_orient_portrait_flipped": true,
   "option_android_orient_landscape": false,
   "option_android_orient_landscape_flipped": false,
   "option_android_gamepad_support": true,
