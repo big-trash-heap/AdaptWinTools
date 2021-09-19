@@ -15,30 +15,33 @@ var _debug = (os_type == os_windows || os_type == os_linux || os_type == os_maco
 var _size;
 var _w, _h;
 
-if (_debug && ADAPT_WIN_MOBILE_ASCPECT) {
+if (_debug && ADAPT_WIN_MOBILE_VIRT_ASCPECT) {
 	
-	_w = ADAPT_WIN_MOBILE_ASCPECT_W;
-	_h = ADAPT_WIN_MOBILE_ASCPECT_H;
+	_w = ADAPT_WIN_MOBILE_VIRT_ASCPECT_W;
+	_h = ADAPT_WIN_MOBILE_VIRT_ASCPECT_H;
 }
 else {
 	
-	_w = display_get_width();
-	_h = display_get_width();
+	var _orientation = display_get_orientation();
+	if (_orientation == display_landscape or _orientation == display_landscape_flipped) {
+		
+		_w = display_get_width();
+		_h = display_get_height();
+	}
+	else {
+		
+		_w = display_get_height();
+		_h = display_get_width();
+	}
 }
 
 if (ADAPT_WIN_MOBILE_MODE == "w") {
 	
-	_size = adaptWinW(
-		ADAPT_WIN_MOBILE_W, ADAPT_WIN_MOBILE_H,
-		_w, _h, 
-	);
+	_size = adaptWinW(_w, _h, ADAPT_WIN_MOBILE_SIZE);
 }
 else {
 	
-	_size = adaptWinH(
-		ADAPT_WIN_MOBILE_W, ADAPT_WIN_MOBILE_H,
-		_w, _h, 
-	);
+	_size = adaptWinH(_w, _h, ADAPT_WIN_MOBILE_SIZE);
 }
 
 show_debug_message("  WinAdapt view: " + string(_size[0]) + "x" + string(_size[1]));
@@ -47,7 +50,7 @@ if (_debug) {
 	
 	var _winSize = adaptWinMin(
 		_size[0], _size[1],
-		ADAPT_WIN_MOBILE_MIN_W, ADAPT_WIN_MOBILE_MIN_H,
+		ADAPT_WIN_MOBILE_VIRT_MIN_W, ADAPT_WIN_MOBILE_VIRT_MIN_H,
 	);
 	
 	adaptWinWindowSetCenter(_winSize[0], _winSize[1]);

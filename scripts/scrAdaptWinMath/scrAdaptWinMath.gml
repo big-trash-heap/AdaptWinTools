@@ -5,38 +5,14 @@
 #macro ADAPT_WIN_ADAPT_RAT	true
 #macro ADAPT_WIN_ADAPT_LIM	50
 
-function adaptWinW(_winW, _winH, _w, _h) {
+function adaptWinW(_wUser, _hUser, _w) {
 	
-	var _ww = _winW;
-	var _hh = floor(_h / _w * _winW);
-	
-	if (ADAPT_WIN_ADAPT_RAT) {
-		
-		var _ratio = adaptWinRatioMath(_ww, _hh, ADAPT_WIN_ADAPT_LIM);
-		var _scale = max(_winW div _ratio[0], _winH div _ratio[1]);
-		
-		_ww = _ratio[0] * _scale;
-		_hh = _ratio[1] * _scale;
-	}
-	
-	return [_ww, _hh];
+	return [_w, floor(_hUser / _wUser * _w)];
 }
 
-function adaptWinH(_winW, _winH, _w, _h) {
+function adaptWinH(_wUser, _hUser, _h) {
 	
-	var _ww = floor(_h / _w * _winH);
-	var _hh = _winH;
-	
-	if (ADAPT_WIN_ADAPT_RAT) {
-		
-		var _ratio = adaptWinRatioMath(_ww, _hh, ADAPT_WIN_ADAPT_LIM);
-		var _scale = max(_winW div _ratio[0], _winH div _ratio[1]);
-		
-		_ww = _ratio[0] * _scale;
-		_hh = _ratio[1] * _scale;
-	}
-	
-	return [_ww, _hh];
+	return [floor(_wUser / _hUser * _h), _h];
 }
 
 function adaptWinRatioMath(_winW, _winH, _lim) {
@@ -70,10 +46,14 @@ function adaptWinRatioMath(_winW, _winH, _lim) {
     }
 }
 
-function adaptWinMin(_winW, _winH, _winMinW, _winMinH) {
+function adaptWinMin(_wUser, _hUser, _winMinW, _winMinH) {
 	
-	var _minscale = min(1, _winMinW / _winW, _winMinH / _winH);
-	return [round(_winW * _minscale), round(_winH * _minscale)];
+	var _scale = 
+		( _wUser / _hUser > _winMinW / _winMinH
+		? _winMinW / _wUser
+		: _winMinH / _hUser
+	);
+	return [round(_wUser * _scale), round(_hUser * _scale)];
 }
 
 #endregion
@@ -96,8 +76,8 @@ function adaptWinWindowSet(
 	
 	window_set_size(_w, _h);
 	window_set_position(
-		_x - _w * _anchorX,
-		_y - _h * _anchorY,
+		max(32, _x - _w * _anchorX),
+		max(32, _y - _h * _anchorY),
 	);
 }
 
