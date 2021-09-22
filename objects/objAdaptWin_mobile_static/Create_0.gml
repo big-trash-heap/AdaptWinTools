@@ -94,14 +94,5 @@ else {
 	application_surface_enable(false);
 }
 
-self.camera_upd = function() {
-	
-	if (self.auto_upd) {
-		
-		return GCamera.updata();
-	}
-	return 0;
-}
-
 #endregion
 

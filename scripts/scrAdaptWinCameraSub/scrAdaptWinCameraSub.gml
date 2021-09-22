@@ -357,9 +357,19 @@ function AdaptWinCam_base(_w, _h, _anchorX, _anchorY, _x, _y, _angle) constructo
 		var _h_x = lengthdir_x(_camera_h, _camera_angle);
 		var _h_y = lengthdir_y(_camera_h, _camera_angle);
 		
-		draw_vertex(_camera_x + _w_x, _camera_y + _w_y);
-		draw_vertex(_camera_x + _h_x, _camera_y + _h_y);
-		draw_vertex(_camera_x + _w_x + _h_x, _camera_y + _w_y + _h_y);
+		if (_fill) {
+		
+			draw_vertex(_camera_x + _w_x, _camera_y + _w_y);
+			draw_vertex(_camera_x + _h_x, _camera_y + _h_y);
+			draw_vertex(_camera_x + _w_x + _h_x, _camera_y + _w_y + _h_y);
+		}
+		else {
+			
+			draw_vertex(_camera_x + _w_x, _camera_y + _w_y);
+			draw_vertex(_camera_x + _w_x + _h_x, _camera_y + _w_y + _h_y);
+			draw_vertex(_camera_x + _h_x, _camera_y + _h_y);
+			draw_vertex(_camera_x, _camera_y);
+		}
 		
 		draw_primitive_end();
 		
